@@ -27,21 +27,39 @@ public class Subject {
     private float dryMatter;
     private float water;
     
-    private Allergens allergens; 
-    private AminoAcids aminoAcids;
-    private Carbohydrates carbohydrates;
-    private Color color;
-    private Factors factors;
-    private FattyAcidsSums fattyAcidsSums;
-    private Minerals minerals;
-    private MonosaturatedFattyAcids MonosaturatedFattyAcids;
-    private Name nameLang;
-    private PolyunsaturatedFattyAcids polyunsaturatedFattyAcids;
-    private SaturatedFattyAcids saturatedFattyAcids;
-    private Sterols sterols;
-    private SupermarkedGroup supermarkedGroup;
-    private Vitamins vitamins;
+    public Allergens allergens; 
+    public AminoAcids aminoAcids;
+    public Carbohydrates carbohydrates;
+    public Color color;
+    public Factors factors;
+    public FattyAcidsSums fattyAcidsSums;
+    public Minerals minerals;
+    public MonosaturatedFattyAcids monosaturatedFattyAcids;
+    public NameLang nameLang;
+    public PolyunsaturatedFattyAcids polyunsaturatedFattyAcids;
+    public SaturatedFattyAcids saturatedFattyAcids;
+    public Sterols sterols;
+    public SupermarkedGroup supermarkedGroup;
+    public Vitamins vitamins;
+    public OrganicAcids organicAcids;
 
+    public Subject(){
+        allergens = new Allergens();
+        aminoAcids = new AminoAcids();
+        carbohydrates = new Carbohydrates();
+        color = new Color();
+        factors = new Factors();
+        fattyAcidsSums = new FattyAcidsSums();
+        minerals = new Minerals();
+        monosaturatedFattyAcids = new MonosaturatedFattyAcids();
+        nameLang = new NameLang();
+        polyunsaturatedFattyAcids = new PolyunsaturatedFattyAcids();
+        saturatedFattyAcids = new SaturatedFattyAcids();
+        sterols = new Sterols();
+        supermarkedGroup = new SupermarkedGroup();
+        vitamins = new Vitamins();
+        
+    }
     public String getName() {
         return name;
     }

@@ -10,6 +10,8 @@ package com.mycompany.mavinfooddbfillerfrida.model;
  * @author Lenovo
  */
 public class Minerals {
+    private float sulfur;
+    private float chloride;
     private float sodium;
     private float potassium;
     private float calcium;
@@ -23,12 +25,92 @@ public class Minerals {
     private float chromium;
     private float selenium;
     private float molybdenum;
+    private float colbalt;
     private float nickel;
+    private float fluoron;
+    private float silicon;
+    private float rubidium;
+    private float aluminum;
+    private float boron;
+    private float bromine;
     private float mercury;
     private float arsenic;
     private float cadmium;
     private float lead;
+    private float tin;
 
+    public float getTin() {
+        return tin;
+    }
+
+    public void setTin(float tin) {
+        this.tin = tin;
+    }
+
+    
+    public float getBromine() {
+        return bromine;
+    }
+
+    public void setBromine(float bromine) {
+        this.bromine = bromine;
+    }
+    public float getBoron() {
+        return boron;
+    }
+
+    public void setBoron(float boron) {
+        this.boron = boron;
+    }
+    public float getAluminum() {
+        return aluminum;
+    }
+
+    public void setAluminum(float aluminum) {
+        this.aluminum = aluminum;
+    }
+    public float getRubidium() {
+        return rubidium;
+    }
+
+    public void setRubidium(float rubidium) {
+        this.rubidium = rubidium;
+    }
+    public float getSilicon() {
+        return silicon;
+    }
+
+    public void setSilicon(float silicon) {
+        this.silicon = silicon;
+    }
+    public float getFluoron() {
+        return fluoron;
+    }
+
+    public void setFluoron(float fluoron) {
+        this.fluoron = fluoron;
+    }
+    public float getColbalt() {
+        return colbalt;
+    }
+
+    public void setColbalt(float colbalt) {
+        this.colbalt = colbalt;
+    }
+    public float getChloride() {
+        return chloride;
+    }
+
+    public void setChloride(float chloride) {
+        this.chloride = chloride;
+    }
+    public float getSulfur() {
+        return sulfur;
+    }
+
+    public void setSulfur(float sulfur) {
+        this.sulfur = sulfur;
+    }
     public float getSodium() {
         return sodium;
     }

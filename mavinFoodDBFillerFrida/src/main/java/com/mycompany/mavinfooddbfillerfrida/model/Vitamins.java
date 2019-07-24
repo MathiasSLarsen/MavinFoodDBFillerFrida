@@ -15,11 +15,17 @@ public class Vitamins {
     private float betaCarotene;
     private float vitaminD;
     private float D3Cholecalciferol;
+    private float D2Ergocalciferol;
     private float _25hydroxycholecalciferol;
     private float vitaminE;
     private float alphaTocopherol;
+    private float gammaTocopherol;
+    private float deltaTocopherol;
+    private float alphaTokotrienol;
     private float vitaminK1;
     private float vitaminB1;
+    private float hydroxyethylthiazole;
+    private float thiamine;
     private float vitaminB2Riboflavin;
     private float niacin;
     private float niacinEquivalent;
@@ -30,6 +36,15 @@ public class Vitamins {
     private float b12;
     private float cVitamin;
     private float LAscorbicAcid;
+    private float LDehydroascorbicAcid;
+
+    public float getLDehydroascorbicAcid() {
+        return LDehydroascorbicAcid;
+    }
+
+    public void setLDehydroascorbicAcid(float LDehydroascorbicAcid) {
+        this.LDehydroascorbicAcid = LDehydroascorbicAcid;
+    }
 
     public float getVitaminA() {
         return vitaminA;
@@ -190,9 +205,50 @@ public class Vitamins {
     public void setLAscorbicAcid(float LAscorbicAcid) {
         this.LAscorbicAcid = LAscorbicAcid;
     }
+     public float getD2Ergocalciferol() {
+        return D2Ergocalciferol;
+    }
+
+    public void setD2Ergocalciferol(float D2Ergocalciferol) {
+        this.D2Ergocalciferol = D2Ergocalciferol;
+    }
     
+    public float getGammaTocopherol() {
+        return gammaTocopherol;
+    }
+
+    public void setGammaTocopherol(float gammaTocopherol) {
+        this.gammaTocopherol = gammaTocopherol;
+    }
+    public float getDeltaTocopherol() {
+        return deltaTocopherol;
+    }
+
+    public void setDeltaTocopherol(float deltaTocopherol) {
+        this.deltaTocopherol = deltaTocopherol;
+    }
     
+    public float getAlphaTokotrienol() {
+        return alphaTokotrienol;
+    }
+
+    public void setAlphaTokotrienol(float alphaTokotrienol) {
+        this.alphaTokotrienol = alphaTokotrienol;
+    }
     
+    public float getThiamine() {
+        return thiamine;
+    }
+
+    public void setThiamine(float thiamine) {
+        this.thiamine = thiamine;
+    }
     
-    
+    public float getHydroxyethylthiazole() {
+        return hydroxyethylthiazole;
+    }
+
+    public void setHydroxyethylthiazole(float hydroxyethylthiazole) {
+        this.hydroxyethylthiazole = hydroxyethylthiazole;
+    }
 }

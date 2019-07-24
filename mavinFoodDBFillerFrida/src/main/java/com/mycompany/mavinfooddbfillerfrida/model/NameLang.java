@@ -9,7 +9,7 @@ package com.mycompany.mavinfooddbfillerfrida.model;
  *
  * @author Lenovo
  */
-public class Name {
+public class NameLang {
     private String dk;
     private String latin;
 

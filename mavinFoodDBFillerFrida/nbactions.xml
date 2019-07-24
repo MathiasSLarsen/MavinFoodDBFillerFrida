@@ -10,7 +10,7 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:1.2.1:exec</goal>
             </goals>
             <properties>
-                <exec.args>-Dorg.apache.poi.util.POILogger=org.apache.commons.logging.impl.NoOpLog -Xms1g -Xmx2g -classpath %classpath ${packageClassName}</exec.args>
+                <exec.args>-Dorg.apache.poi.util.POILogger=org.apache.commons.logging.impl.NoOpLog -Xms1g -Xmx2g -classpath %classpath com.mycompany.mavinfooddbfillerfrida.NewMain</exec.args>
                 <exec.executable>java</exec.executable>
             </properties>
         </action>
