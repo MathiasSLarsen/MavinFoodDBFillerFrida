@@ -14,9 +14,18 @@ public class FattyAcidsSums {
     private float sumSaturated;
     private float sumMonounsaturated;
     private float sumPolyunsaturated;
+    private float transFattyAcidsTotal;
     private float fattyAcidsTotal;
     private float sumN3FattyAcids;
 
+    
+    public float getTransFattyAcidsTotal() {
+        return transFattyAcidsTotal;
+    }
+
+    public void setTransFattyAcidsTotal(float transFattyAcidsTotal) {
+        this.transFattyAcidsTotal = transFattyAcidsTotal;
+    }
     public float getOtherFattyAcids() {
         return otherFattyAcids;
     }

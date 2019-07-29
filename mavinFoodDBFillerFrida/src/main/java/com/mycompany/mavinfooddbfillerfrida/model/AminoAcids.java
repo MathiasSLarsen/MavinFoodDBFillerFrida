@@ -27,8 +27,26 @@ public class AminoAcids {
     private int glutamicAcid;
     private int glycine;
     private int proline;
+    private int hydroxyproline;
     private int serin;
+    private int betaCarotene;
 
+    public int getBetaCarotene() {
+        return betaCarotene;
+    }
+
+    public void setBetaCarotene(int betaCarotene) {
+        this.betaCarotene = betaCarotene;
+    }
+
+    
+    public int getHydroxyproline() {
+        return hydroxyproline;
+    }
+
+    public void setHydroxyproline(int hydroxyproline) {
+        this.hydroxyproline = hydroxyproline;
+    }
     public int getIsoleucine() {
         return isoleucine;
     }

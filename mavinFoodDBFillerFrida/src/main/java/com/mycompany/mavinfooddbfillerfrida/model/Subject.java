@@ -42,6 +42,8 @@ public class Subject {
     public SupermarkedGroup supermarkedGroup;
     public Vitamins vitamins;
     public OrganicAcids organicAcids;
+    public Biogeneamines biogeneamines;
+    public MonounsaturatedFattyAcids monounsaturatedFattyAcids;
 
     public Subject(){
         allergens = new Allergens();
@@ -58,6 +60,9 @@ public class Subject {
         sterols = new Sterols();
         supermarkedGroup = new SupermarkedGroup();
         vitamins = new Vitamins();
+        organicAcids = new OrganicAcids();
+        biogeneamines = new Biogeneamines();
+        monounsaturatedFattyAcids = new MonounsaturatedFattyAcids();
         
     }
     public String getName() {

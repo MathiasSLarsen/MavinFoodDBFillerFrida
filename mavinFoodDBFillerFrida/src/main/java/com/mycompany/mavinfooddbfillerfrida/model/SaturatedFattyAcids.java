@@ -15,14 +15,56 @@ public class SaturatedFattyAcids {
     private float c80;
     private float c100;
     private float c120;
+    private float c130;
     private float c140;
+    private float c150;
     private float c160;
     private float c170;
     private float c180;
     private float c200;
+    private float c210;
     private float c220;
+    private float c230;
     private float c240;
+    private float other;
 
+    public float getOther() {
+        return other;
+    }
+
+    public void setOther(float other) {
+        this.other = other;
+    }
+
+    
+    public float getC230() {
+        return c230;
+    }
+
+    public void setC230(float c230) {
+        this.c230 = c230;
+    }
+    public float getC210() {
+        return c210;
+    }
+
+    public void setC210(float c210) {
+        this.c210 = c210;
+    }
+    public float getC150() {
+        return c150;
+    }
+
+    public void setC150(float c150) {
+        this.c150 = c150;
+    }
+    public float getC130() {
+        return c130;
+    }
+
+    public void setC130(float c130) {
+        this.c130 = c130;
+    }
     public float getC40() {
         return c40;
     }

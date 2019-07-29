@@ -11,15 +11,81 @@ package com.mycompany.mavinfooddbfillerfrida.model;
  */
 public class PolyunsaturatedFattyAcids {
     private float c182n6;
+    private float c182;
     private float c183n3;
+    private float c183n6;
     private float c184n3;
     private float c202n6;
+    private float c222n6;
+    private float c224n6;
+    private float c225n6;
     private float c203n3;
+    private float c204n3;
     private float c203n6;
+    private float c204n6;
     private float c205n3;
     private float c225n3;
     private float c226n3;
+    private float other;
 
+    public float getOther() {
+        return other;
+    }
+
+    public void setOther(float other) {
+        this.other = other;
+    }
+
+    
+    public float getC204n6() {
+        return c204n6;
+    }
+
+    public void setC204n6(float c204n6) {
+        this.c204n6 = c204n6;
+    }
+    public float getC204n3() {
+        return c204n3;
+    }
+
+    public void setC204n3(float c204n3) {
+        this.c204n3 = c204n3;
+    }
+    public float getC225n6() {
+        return c225n6;
+    }
+
+    public void setC225n6(float c225n6) {
+        this.c225n6 = c225n6;
+    }
+    public float getC224n6() {
+        return c224n6;
+    }
+
+    public void setC224n6(float c224n6) {
+        this.c224n6 = c224n6;
+    }
+    public float getC222n6() {
+        return c222n6;
+    }
+
+    public void setC222n6(float c222n6) {
+        this.c222n6 = c222n6;
+    }
+    public float getC183n6() {
+        return c183n6;
+    }
+
+    public void setC183n6(float c183n6) {
+        this.c183n6 = c183n6;
+    }
+    public float getC182() {
+        return c182;
+    }
+
+    public void setC182(float c182) {
+        this.c182 = c182;
+    }
     public float getC182n6() {
         return c182n6;
     }

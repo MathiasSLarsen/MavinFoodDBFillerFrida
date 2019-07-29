@@ -11,20 +11,135 @@ package com.mycompany.mavinfooddbfillerfrida.model;
  */
 public class Carbohydrates {
     private float fructose;
+    private float galactose;
     private float glucose;
     private float monosaccharidesTotal;
     private float lactose;
     private float maltose;
     private float sucrose;
     private float disaccharidesTotal;
+    private float maltotriose;
+    private float raffinose;
+    private float otherSugars;
     private float sugarsTotal;
+    private float sorbitol;
+    private float mannitol;
+    private float inositol;
+    private float maltitol;
+    private float sugarAlcoholsTotal;
     private float starch;
+    private float IDF;
+    private float SDFP;
+    private float SDFS;
     private float aHexoses;
     private float bThePentoses;
     private float cUronicAcids;
     private float cellulose;
     private float lignin;
+    private float crudeFibers;
+    private float naturalDietFibre;
 
+    public float getNaturalDietFibre() {
+        return naturalDietFibre;
+    }
+
+    public void setNaturalDietFibre(float naturalDietFibre) {
+        this.naturalDietFibre = naturalDietFibre;
+    }
+
+    public float getCrudeFibers() {
+        return crudeFibers;
+    }
+
+    public void setCrudeFibers(float crudeFibers) {
+        this.crudeFibers = crudeFibers;
+    }
+
+    
+    public float getSDFS() {
+        return SDFS;
+    }
+
+    public void setSDFS(float SDFS) {
+        this.SDFS = SDFS;
+    }
+    public float getSDFP() {
+        return SDFP;
+    }
+
+    public void setSDFP(float SDFP) {
+        this.SDFP = SDFP;
+    }
+    public float getIDF() {
+        return IDF;
+    }
+
+    public void setIDF(float IDF) {
+        this.IDF = IDF;
+    }
+    public float getSugarAlcoholsTotal() {
+        return sugarAlcoholsTotal;
+    }
+
+    public void setSugarAlcoholsTotal(float sugarAlcoholsTotal) {
+        this.sugarAlcoholsTotal = sugarAlcoholsTotal;
+    }
+    public float getMaltitol() {
+        return maltitol;
+    }
+
+    public void setMaltitol(float maltitol) {
+        this.maltitol = maltitol;
+    }
+    public float getInositol() {
+        return inositol;
+    }
+
+    public void setInositol(float inositol) {
+        this.inositol = inositol;
+    }
+    public float getMannitol() {
+        return mannitol;
+    }
+
+    public void setMannitol(float mannitol) {
+        this.mannitol = mannitol;
+    }
+    public float getSorbitol() {
+        return sorbitol;
+    }
+
+    public void setSorbitol(float sorbitol) {
+        this.sorbitol = sorbitol;
+    }
+    public float getOtherSugars() {
+        return otherSugars;
+    }
+
+    public void setOtherSugars(float otherSugars) {
+        this.otherSugars = otherSugars;
+    }
+    public float getRaffinose() {
+        return raffinose;
+    }
+
+    public void setRaffinose(float raffinose) {
+        this.raffinose = raffinose;
+    }
+    public float getMaltotriose() {
+        return maltotriose;
+    }
+
+    public void setMaltotriose(float maltotriose) {
+        this.maltotriose = maltotriose;
+    }
+    public float getGalactose() {
+        return galactose;
+    }
+
+    public void setGalactose(float galactose) {
+        this.galactose = galactose;
+    }
     public float getFructose() {
         return fructose;
     }

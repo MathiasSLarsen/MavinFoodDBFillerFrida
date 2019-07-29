@@ -11,14 +11,51 @@ package com.mycompany.mavinfooddbfillerfrida.model;
  */
 public class MonosaturatedFattyAcids {
     private float c141n5;
+    private float c151;
     private float c161n7;
+    private float c171n7;
     private float c181n9;
     private float c181n7;
+    private float c201n9;
     private float c201n11;
     private float c221n9;
     private float c221n11;
     private float c241n9;
+    private float other;
 
+    
+    
+    public float getOther() {
+        return other;
+    }
+
+    public void setOther(float other) {
+        this.other = other;
+    }
+
+    
+    public float getC201n9() {
+        return c201n9;
+    }
+
+    public void setC201n9(float c201n9) {
+        this.c201n9 = c201n9;
+    }
+    public float getC171n7() {
+        return c171n7;
+    }
+
+    public void setC171n7(float c171n7) {
+        this.c171n7 = c171n7;
+    }
+    
+    public float getC151() {
+        return c151;
+    }
+
+    public void setC151(float c151) {
+        this.c151 = c151;
+    }
     public float getC141n5() {
         return c141n5;
     }
