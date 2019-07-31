@@ -28,6 +28,27 @@ public class SaturatedFattyAcids {
     private float c240;
     private float other;
 
+    public String toString(){
+        return "***************\n"+
+                "SaturatedFattyAcids"+
+                "c4:0; "+c40+"\n" +
+                "c6:0; "+c60+"\n" +
+                "c8:0; "+c80+"\n" +
+                "c10:0; "+c100+"\n" +
+                "c12:0; "+c120+"\n" +
+                "c13:0; "+c130+"\n" +
+                "c14:0; "+c140+"\n" +
+                "c15:0; "+c150+"\n" +
+                "c16:0; "+c160+"\n" +
+                "c17:0; "+c170+"\n" +
+                "c18:0; "+c180+"\n" +
+                "c20:0; "+c200+"\n" +
+                "c21:0; "+c210+"\n" +
+                "c22:0; "+c220+"\n" +
+                "c23:0; "+c230+"\n" +
+                "c24:0; "+c240+"\n" +
+                "other; "+other+"\n";
+    }
     public float getOther() {
         return other;
     }

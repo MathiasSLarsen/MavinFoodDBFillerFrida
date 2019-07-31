@@ -19,6 +19,18 @@ public class Biogeneamines {
     private float spermidine; 
     private float serotonin;
 
+    public String toString(){
+        return  "*************\n"+
+                "Biogeneamines\n"+
+                "histamine; "+histamine+"\n" +
+                "tyramine; "+tyramine+"\n" +
+                "phenylethylamine; "+phenylethylamine+"\n" +
+                "putrescine; "+putrescine+"\n" +
+                "cadaverine; "+cadaverine+"\n" +
+                "spermine; "+spermine+"\n" +
+                "spermidine; "+spermidine+"\n" +
+                "serotonin; "+serotonin+"\n";
+    }
     public float getHistamine() {
         return histamine;
     }

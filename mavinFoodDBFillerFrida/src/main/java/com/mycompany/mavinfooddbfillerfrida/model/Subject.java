@@ -63,7 +63,26 @@ public class Subject {
         organicAcids = new OrganicAcids();
         biogeneamines = new Biogeneamines();
         monounsaturatedFattyAcids = new MonounsaturatedFattyAcids();
-        
+    }
+    
+    public String toString(){
+        return "**************"+
+               "Subject\n"+
+               "name; "+name+"\n" +
+                "ingredient_idIngredient; "+ingredient_idIngredient+"\n" +
+                "product_idproduct; "+product_idproduct+"\n" +
+                "kj; "+kj+"\n" +
+                "kcal; "+kcal+"\n" +
+                "totalN; "+totalN+"\n" +
+                "protien; "+protien+"\n" +
+                "carbohydratesTotal; "+carbohydratesTotal+"\n" +
+                "addedSugar; "+addedSugar+"\n" +
+                "fat; "+fat+"\n" +
+                "fiber; "+fiber+"\n" +
+                "alcohol; "+alcohol+"\n" +
+                "ash; "+ash+"\n" +
+                "dryMatter; "+dryMatter+"\n" +
+                "water; "+water+"\n";
     }
     public String getName() {
         return name;

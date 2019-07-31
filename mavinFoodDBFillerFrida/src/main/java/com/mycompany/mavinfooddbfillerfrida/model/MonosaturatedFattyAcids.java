@@ -23,7 +23,22 @@ public class MonosaturatedFattyAcids {
     private float c241n9;
     private float other;
 
-    
+    public String toString(){
+        return "**************\n"+
+                "MonosaturatedFattyAcids\n"+
+                "c14:1n-5; "+c141n5+"\n" +
+                "c15:1; "+c151+"\n" +
+                "c16:1n-7; "+c161n7+"\n" +
+                "c17:1n-7; "+c171n7+"\n" +
+                "c18:1n-9; "+c181n9+"\n" +
+                "c18:1n-7; "+c181n7+"\n" +
+                "c20:1n-9; "+c201n9+"\n" +
+                "c20:1n-11; "+c201n11+"\n" +
+                "c22:1n-9; "+c221n9+"\n" +
+                "c22:1n-11; "+c221n11+"\n" +
+                "c24:1n-9; "+c241n9+"\n" +
+                "other; "+other+"\n";
+    }
     
     public float getOther() {
         return other;

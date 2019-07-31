@@ -31,6 +31,30 @@ public class AminoAcids {
     private int serin;
     private int betaCarotene;
 
+    public String toString(){
+        return "***************\n"+
+                "AminoAcids \n"+
+                "isoleucine; "+isoleucine+"\n"+
+                "leucine; "+leucine+"\n" +
+                "lysine; "+lysine+"\n" +
+                "methionine; "+methionine+"\n" +
+                "cystine; "+cystine+"\n" +
+                "phenylalanine; "+phenylalanine+"\n" +
+                "tyrosine; "+tyrosine+"\n" +
+                "threonine; "+threonine+"\n" +
+                "tryptophan; "+tryptophan+"\n" +
+                "valin; "+valin+"\n" +
+                "arginine; "+arginine+"\n" +
+                "histidine; "+histidine+"\n" +
+                "alanine; "+alanine+"\n" +
+                "asparticAcid; "+asparticAcid+"\n" +
+                "glutamicAcid; "+glutamicAcid+"\n" +
+                "glycine; "+glycine+"\n" +
+                "proline; "+proline+"\n" +
+                "hydroxyproline; "+hydroxyproline+"\n" +
+                "serin; "+serin+"\n" +
+                "betaCarotene; "+betaCarotene+"\n";
+    }
     public int getBetaCarotene() {
         return betaCarotene;
     }

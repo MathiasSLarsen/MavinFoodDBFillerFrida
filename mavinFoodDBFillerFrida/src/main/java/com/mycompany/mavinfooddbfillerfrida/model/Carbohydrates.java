@@ -39,6 +39,38 @@ public class Carbohydrates {
     private float crudeFibers;
     private float naturalDietFibre;
 
+    public String toString(){
+        return  "***********"+
+                "Carbohydrates"+
+                "fructose; "+fructose+"\n" +
+                "galactose; "+galactose+"\n" +
+                "glucose; "+glucose+"\n" +
+                "monosaccharidesTotal; "+monosaccharidesTotal+"\n" +
+                "lactose; "+lactose+"\n" +
+                "maltose; "+maltose+"\n" +
+                "sucrose; "+sucrose+"\n" +
+                "disaccharidesTotal; "+disaccharidesTotal+"\n" +
+                "maltotriose; "+maltotriose+"\n" +
+                "raffinose; "+raffinose+"\n" +
+                "otherSugars; "+otherSugars+"\n" +
+                "sugarsTotal; "+sugarsTotal+"\n" +
+                "sorbitol; "+sorbitol+"\n" +
+                "mannitol; "+mannitol+"\n" +
+                "inositol; "+inositol+"\n" +
+                "maltitol; "+maltitol+"\n" +
+                "sugarAlcoholsTotal; "+sugarAlcoholsTotal+"\n" +
+                "starch; "+starch+"\n" +
+                "IDF; "+IDF+"\n" +
+                "SDFP; "+SDFP+"\n" +
+                "SDFS; "+SDFS+"\n" +
+                "aHexoses; "+aHexoses+"\n" +
+                "bThePentoses; "+bThePentoses+"\n" +
+                "cUronicAcids; "+cUronicAcids+"\n" +
+                "cellulose; "+cellulose+"\n" +
+                "lignin; "+lignin+"\n" +
+                "crudeFibers; "+crudeFibers+"\n" +
+                "naturalDietFibre; "+naturalDietFibre+"\n";
+    }
     public float getNaturalDietFibre() {
         return naturalDietFibre;
     }

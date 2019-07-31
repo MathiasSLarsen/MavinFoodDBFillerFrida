@@ -12,6 +12,11 @@ package com.mycompany.mavinfooddbfillerfrida.model;
 public class Sterols {
     private int cholesterol;
 
+    public String toString(){
+        return "***********\n"+
+               "Sterols"+
+               "cholesterol; "+cholesterol+"\n";
+    }
     public int getCholesterol() {
         return cholesterol;
     }

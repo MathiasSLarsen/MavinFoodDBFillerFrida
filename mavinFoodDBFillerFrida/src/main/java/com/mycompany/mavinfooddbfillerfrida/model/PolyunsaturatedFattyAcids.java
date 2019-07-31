@@ -28,6 +28,27 @@ public class PolyunsaturatedFattyAcids {
     private float c226n3;
     private float other;
 
+    public String toString(){
+        return "**************\n"+
+                "PolyunsaturatedFattyAcids\n"+
+                "c182n6; "+c182n6+"\n" +
+                "c182; "+c182+"\n" +
+                "c183n3; "+c183n3+"\n" +
+                "c183n6; "+c183n6+"\n" +
+                "c184n3; "+c184n3+"\n" +
+                "c202n6; "+c202n6+"\n" +
+                "c222n6; "+c222n6+"\n" +
+                "c224n6; "+c224n6+"\n" +
+                "c225n6; "+c225n6+"\n" +
+                "c203n3; "+c203n3+"\n" +
+                "c204n3; "+c204n3+"\n" +
+                "c203n6; "+c203n6+"\n" +
+                "c204n6; "+c204n6+"\n" +
+                "c205n3; "+c205n3+"\n" +
+                "c225n3; "+c225n3+"\n" +
+                "c226n3; "+c226n3+"\n" +
+                "other; "+other+"\n";
+    }
     public float getOther() {
         return other;
     }

@@ -38,6 +38,37 @@ public class Vitamins {
     private float LAscorbicAcid;
     private float LDehydroascorbicAcid;
 
+    public String toString(){
+        return "**************\n"+
+                "Vitamins\n"+
+                "vitaminA; "+vitaminA+"\n" +
+                "retinol; "+retinol+"\n" +
+                "betaCarotene; "+betaCarotene+"\n" +
+                "vitaminD; "+vitaminD+"\n" +
+                "D3Cholecalciferol; "+D3Cholecalciferol+"\n" +
+                "D2Ergocalciferol; "+D2Ergocalciferol+"\n" +
+                "_25hydroxycholecalciferol; "+_25hydroxycholecalciferol+"\n" +
+                "vitaminE; "+vitaminE+"\n" +
+                "alphaTocopherol; "+alphaTocopherol+"\n" +
+                "gammaTocopherol; "+gammaTocopherol+"\n" +
+                "deltaTocopherol; "+deltaTocopherol+"\n" +
+                "alphaTokotrienol; "+alphaTokotrienol+"\n" +
+                "vitaminK1; "+vitaminK1+"\n" +
+                "vitaminB1; "+vitaminB1+"\n" +
+                "hydroxyethylthiazole; "+hydroxyethylthiazole+"\n" +
+                "thiamine; "+thiamine+"\n" +
+                "vitaminB2Riboflavin; "+vitaminB2Riboflavin+"\n" +
+                "niacin; "+niacin+"\n" +
+                "niacinEquivalent; "+niacinEquivalent+"\n" +
+                "vitaminB6; "+vitaminB6+"\n" +
+                "pantothenic; "+pantothenic+"\n" +
+                "biotin; "+biotin+"\n" +
+                "folate; "+folate+"\n" +
+                "b12; "+b12+"\n" +
+                "cVitamin; "+cVitamin+"\n" +
+                "LAscorbicAcid; "+LAscorbicAcid+"\n" +
+                "LDehydroascorbicAcid; "+LDehydroascorbicAcid+"\n";
+    }
     public float getLDehydroascorbicAcid() {
         return LDehydroascorbicAcid;
     }

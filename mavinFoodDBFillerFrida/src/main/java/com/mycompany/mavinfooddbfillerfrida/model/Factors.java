@@ -14,6 +14,13 @@ public class Factors {
     private float proteinConversionFactor;
     private float fattyAcidConversionFactor;
 
+    public String toString(){
+        return "*************\n"+
+                "Factors"+
+                "waste; "+waste+"\n" +
+                "proteinConversionFactor; "+proteinConversionFactor+"\n" +
+                "fattyAcidConversionFactor; "+fattyAcidConversionFactor+"\n";
+    }
     public float getWaste() {
         return waste;
     }

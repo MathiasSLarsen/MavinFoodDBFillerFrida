@@ -22,6 +22,21 @@ public class OrganicAcids {
     private float propionic;
     private float organicAcidsTotal;
 
+    public String toString(){
+        return "***************\n"+
+                "OrganicAcids \n"+
+                "lLacticAcid; "+lLacticAcid+"\n" +
+                "dLacticAcid; "+dLacticAcid+"\n" +
+                "laticAcidTotal; "+laticAcidTotal+"\n" +
+                "citricAcid; "+citricAcid+"\n" +
+                "oxalicAcid; "+oxalicAcid+"\n" +
+                "malicAcid; "+malicAcid+"\n" +
+                "aceticAcid; "+aceticAcid+"\n" +
+                "benzoicAcid; "+benzoicAcid+"\n" +
+                "sorbicAcid; "+sorbicAcid+"\n" +
+                "propionic; "+propionic+"\n" +
+                "organicAcidsTotal; "+organicAcidsTotal+"\n";
+    }
     public float getlLacticAcid() {
         return lLacticAcid;
     }

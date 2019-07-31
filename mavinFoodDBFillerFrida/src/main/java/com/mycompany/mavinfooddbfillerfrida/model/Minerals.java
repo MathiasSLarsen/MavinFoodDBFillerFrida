@@ -39,6 +39,38 @@ public class Minerals {
     private float lead;
     private float tin;
 
+    public String toString(){
+        return "*************\n"+
+                "Minerals\n"+
+                "sulfur; "+sulfur+"\n" +
+                "chloride; "+chloride+"\n" +
+                "sodium; "+sodium+"\n" +
+                "potassium; "+potassium+"\n" +
+                "calcium; "+calcium+"\n" +
+                "magnesium; "+magnesium+"\n" +
+                "phosphorus; "+phosphorus+"\n" +
+                "iron; "+iron+"\n" +
+                "copper; "+copper+"\n" +
+                "zink; "+zink+"\n" +
+                "iodine; "+iodine+"\n" +
+                "manganese; "+manganese+"\n" +
+                "chromium; "+chromium+"\n" +
+                "selenium; "+selenium+"\n" +
+                "molybdenum; "+molybdenum+"\n" +
+                "colbalt; "+colbalt+"\n" +
+                "nickel; "+nickel+"\n" +
+                "fluoron; "+fluoron+"\n" +
+                "silicon; "+silicon+"\n" +
+                "rubidium; "+rubidium+"\n" +
+                "aluminum; "+aluminum+"\n" +
+                "boron; "+boron+"\n" +
+                "bromine; "+bromine+"\n" +
+                "mercury; "+mercury+"\n" +
+                "arsenic; "+arsenic+"\n" +
+                "cadmium; "+cadmium+"\n" +
+                "lead; "+lead+"\n" +
+                "tin;"+tin+"\n";
+    }
     public float getTin() {
         return tin;
     }

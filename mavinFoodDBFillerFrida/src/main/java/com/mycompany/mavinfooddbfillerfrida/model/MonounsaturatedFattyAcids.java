@@ -17,6 +17,16 @@ public class MonounsaturatedFattyAcids {
     private float c221Trans;
     private float c182TransUndifferentiated;
 
+    public String toString(){
+        return "****************\n"+
+                "MonounsaturatedFattyAcids \n"+
+                "c14:1-Trans-9; "+c141Trans9+"\n" +
+                "c16:1-Trans; "+c161Trans+"\n" +
+                "c18:1-Trans-N9; "+c181TransN9+"\n" +
+                "c20:1-Trans; "+c201Trans+"\n" +
+                "c22:1-Trans; "+c221Trans+"\n" +
+                "c18:2-TransUndifferentiated; "+c182TransUndifferentiated+"\n";
+    }
     public float getC141Trans9() {
         return c141Trans9;
     }

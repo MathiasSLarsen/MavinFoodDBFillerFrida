@@ -18,7 +18,17 @@ public class FattyAcidsSums {
     private float fattyAcidsTotal;
     private float sumN3FattyAcids;
 
-    
+    public String toString(){
+        return "*************\n"+
+                "FattyAcidsSums"+
+                "otherFattyAcids; "+otherFattyAcids+"\n" +
+                "sumSaturated; "+sumSaturated+"\n" +
+                "sumMonounsaturated; "+sumMonounsaturated+"\n" +
+                "sumPolyunsaturated; "+sumPolyunsaturated+"\n" +
+                "transFattyAcidsTotal; "+transFattyAcidsTotal+"\n" +
+                "fattyAcidsTotal; "+fattyAcidsTotal+"\n" +
+                "sumN3FattyAcids; "+sumN3FattyAcids+"\n";
+    }
     public float getTransFattyAcidsTotal() {
         return transFattyAcidsTotal;
     }
