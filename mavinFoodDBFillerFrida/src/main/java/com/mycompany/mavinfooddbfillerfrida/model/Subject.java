@@ -12,8 +12,8 @@ package com.mycompany.mavinfooddbfillerfrida.model;
 public class Subject {
     
     private String name;
-    private int ingredient_idIngredient;
-    private int product_idproduct;
+    private int ingredient_idIngredient = 0;
+    private int product_idproduct = 0;
     private int kj;
     private int kcal;
     private float totalN;
@@ -26,6 +26,10 @@ public class Subject {
     private float ash;
     private float dryMatter;
     private float water;
+    private String DB = "Frida";
+    private boolean isIngredient = false;
+    private String foodGroup;
+
     
     public Allergens allergens; 
     public AminoAcids aminoAcids;
@@ -44,6 +48,7 @@ public class Subject {
     public OrganicAcids organicAcids;
     public Biogeneamines biogeneamines;
     public MonounsaturatedFattyAcids monounsaturatedFattyAcids;
+    public Variety variety;
 
     public Subject(){
         allergens = new Allergens();
@@ -63,6 +68,33 @@ public class Subject {
         organicAcids = new OrganicAcids();
         biogeneamines = new Biogeneamines();
         monounsaturatedFattyAcids = new MonounsaturatedFattyAcids();
+        variety = new Variety();
+    }
+    
+
+
+    public String getFoodGroup() {
+        return foodGroup;
+    }
+
+    public void setFoodGroup(String foodGroup) {
+        this.foodGroup = foodGroup;
+    }
+        
+    public boolean getIsIngredient() {
+        return isIngredient;
+    }
+
+    public void setIsIngredient(boolean isIngredient) {
+        this.isIngredient = isIngredient;
+    }
+    
+    public String getDB() {
+        return DB;
+    }
+
+    public void setDB(String DB) {
+        this.DB = DB;
     }
     
     public String toString(){

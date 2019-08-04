@@ -19,6 +19,12 @@ public class Color {
         this.colors = new ArrayList();
     }
 
+    public String getColor(int index){
+        return colors.get(index);
+    }
+    public int colorSize(){
+        return colors.size();
+    }
     @Override
     public String toString(){
         StringBuilder stringBuilder = new StringBuilder();

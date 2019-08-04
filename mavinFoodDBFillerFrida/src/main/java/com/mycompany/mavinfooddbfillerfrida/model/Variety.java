@@ -10,5 +10,13 @@ package com.mycompany.mavinfooddbfillerfrida.model;
  * @author Lenovo
  */
 public class Variety {
-    
+    private String name = "generic";
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

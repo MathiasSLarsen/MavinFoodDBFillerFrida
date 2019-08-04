@@ -23,15 +23,23 @@ public class View extends javax.swing.JFrame {
      DefaultComboBoxModel supermarkedGroups = new DefaultComboBoxModel( new String[] {"Fruits and vegetables", "Meat", "Fish", "Frozen", "Dairy", "Colonial", "Candy", "Drinks"});
      DefaultComboBoxModel colors = new DefaultComboBoxModel( new String[] {"White", "Yellow", "Green", "Brown", "Red", "Purple", "Orange", "Black"});
      Subject subject;
+     DTO dto = new DTO();
+     XMLParser xml = new XMLParser();
+     Save save = new Save();
+     private int savePoint;
      /**
      * Creates new form View
      */
     public View() throws IOException {
-        XMLParser xml = new XMLParser();
         xml.Makeobjects();
-        subject = xml.subjectArray.get(1);
+        savePoint = save.load();
+        subject = xml.subjectArray.get(savePoint);
         initComponents();
-        setTextArea(subject);
+        setTextArea();
+        setModel();
+    }
+    
+    private void setModel(){
         this.glutenComboBox.setModel(allergens);
         this.milkComboBox.setModel(allergens);
         this.eggComboBox.setModel(allergens);
@@ -45,8 +53,9 @@ public class View extends javax.swing.JFrame {
         this.colorComboBox.setModel(colors);
     }
     
-    private void setTextArea(Subject subject){
-        this.jTextArea1.setText(subject.toString());
+    private void setTextArea(){
+        this.jTextArea1.setText(subject.nameLang.toString());
+        this.jTextArea1.append(subject.toString());
         this.jTextArea1.append(subject.vitamins.toString());
         this.jTextArea1.append(subject.minerals.toString());
         this.jTextArea1.append(subject.organicAcids.toString());
@@ -98,6 +107,10 @@ public class View extends javax.swing.JFrame {
         addButton = new javax.swing.JButton();
         colorsLable = new javax.swing.JLabel();
         removeButton = new javax.swing.JButton();
+        isIngredient = new javax.swing.JButton();
+        isingredientLable = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        foodGroupTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -168,7 +181,7 @@ public class View extends javax.swing.JFrame {
             }
         });
 
-        colorsLable.setText("jLabel12");
+        colorsLable.setText("         ");
 
         removeButton.setText("Remove color");
         removeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -176,6 +189,19 @@ public class View extends javax.swing.JFrame {
                 removeButtonActionPerformed(evt);
             }
         });
+
+        isIngredient.setText("Is Ingredient");
+        isIngredient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                isIngredientActionPerformed(evt);
+            }
+        });
+
+        isingredientLable.setText("false");
+
+        jLabel12.setText("Food Group");
+
+        foodGroupTextField.setText("jTextField1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -201,12 +227,23 @@ public class View extends javax.swing.JFrame {
                             .addComponent(jLabel8)
                             .addComponent(jLabel9))
                         .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(sesamComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(shellFishComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fishComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(wheatComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(eggComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(fishComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(foodGroupTextField))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(wheatComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(isingredientLable))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(eggComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(isIngredient))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(glutenComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -264,15 +301,20 @@ public class View extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
-                            .addComponent(eggComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(eggComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(isIngredient)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(wheatComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(wheatComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(isingredientLable))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(fishComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(fishComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12)
+                            .addComponent(foodGroupTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
@@ -281,7 +323,7 @@ public class View extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
                             .addComponent(sesamComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                         .addComponent(uploadButton))
                     .addComponent(test))
                 .addContainerGap())
@@ -300,6 +342,73 @@ public class View extends javax.swing.JFrame {
         subject.allergens.setFish(this.fishComboBox.getSelectedIndex());
         subject.allergens.setShellfish(this.shellFishComboBox.getSelectedIndex());
         subject.allergens.setSesame(this.sesamComboBox.getSelectedIndex());
+        subject.setFoodGroup(this.foodGroupTextField.getText());
+        
+        if(subject.getIsIngredient() == true){
+            try {
+                dto.uploadIngredient(subject.getName(), subject.getKj(), subject.getKcal(), subject.getTotalN(), subject.getProtien(), subject.getCarbohydrates(), subject.getAddedSugar(), subject.getFat(), subject.getFiber(), subject.getAlcohol(), subject.getAsh(), subject.getDryMatter(), subject.getWater(), subject.getDB());
+                subject.setIngredient_idIngredient(dto.getIngridentId(subject.getName()));
+                dto.uploadAllergens(subject.allergens.getGluten(), subject.allergens.getMilk(), subject.allergens.getEgg(), subject.allergens.getPeanut(), subject.allergens.getSoy(), subject.allergens.getWheat(), subject.allergens.getFish(), subject.allergens.getShellfish(), subject.allergens.getSesame(), subject.getIngredient_idIngredient(), subject.getIsIngredient());
+                dto.uploadAminoAcids(subject.aminoAcids.getIsoleucine(), subject.aminoAcids.getLeucine(), subject.aminoAcids.getLysine(), subject.aminoAcids.getMethionine(), subject.aminoAcids.getCystine(), subject.aminoAcids.getPhenylalanine(), subject.aminoAcids.getTyrosine(), subject.aminoAcids.getThreonine(), subject.aminoAcids.getTryptophan(), subject.aminoAcids.getValin(), subject.aminoAcids.getArginine(), subject.aminoAcids.getHistidine(), subject.aminoAcids.getAlanine(), subject.aminoAcids.getAsparticAcid(), subject.aminoAcids.getGlutamicAcid(), subject.aminoAcids.getGlycine(), subject.aminoAcids.getProline(), subject.aminoAcids.getHydroxyproline(), subject.aminoAcids.getSerin(), subject.aminoAcids.getBetaCarotene(), subject.getIngredient_idIngredient(), subject.getIsIngredient());
+                dto.uploadBiogeneamines(subject.biogeneamines.getHistamine(), subject.biogeneamines.getTyramine(), subject.biogeneamines.getPhenylethylamine(), subject.biogeneamines.getPutrescine(), subject.biogeneamines.getCadaverine(), subject.biogeneamines.getSpermine(), subject.biogeneamines.getSpermidine(), subject.biogeneamines.getSerotonin(), subject.getIngredient_idIngredient(), subject.getIsIngredient());
+                dto.uploadFactors(subject.factors.getWaste(), subject.factors.getProteinConversionFactor(), subject.factors.getFattyAcidConversionFactor(), subject.getIngredient_idIngredient(), subject.getIsIngredient());
+                dto.uploadFattyacidssums(subject.fattyAcidsSums.getOtherFattyAcids(), subject.fattyAcidsSums.getSumSaturated(), subject.fattyAcidsSums.getSumMonounsaturated(), subject.fattyAcidsSums.getSumPolyunsaturated(), subject.fattyAcidsSums.getTransFattyAcidsTotal(), subject.fattyAcidsSums.getFattyAcidsTotal(), subject.fattyAcidsSums.getSumN3FattyAcids(), subject.fattyAcidsSums.getSumN6FattyAcids(), subject.getIngredient_idIngredient(), subject.getIsIngredient());
+                dto.uploadMinerals(subject.minerals.getSulfur(), subject.minerals.getChloride(), subject.minerals.getSodium(), subject.minerals.getPotassium(), subject.minerals.getCalcium(), subject.minerals.getMagnesium(), subject.minerals.getPhosphorus(), subject.minerals.getIron(), subject.minerals.getCopper(), subject.minerals.getZink(), subject.minerals.getIodine(), subject.minerals.getManganese(), subject.minerals.getChromium(), subject.minerals.getSelenium(), subject.minerals.getMolybdenum(), subject.minerals.getColbalt(), subject.minerals.getNickel(), subject.minerals.getFluoron(), subject.minerals.getSilicon(), subject.minerals.getRubidium(), subject.minerals.getAluminum(), subject.minerals.getBoron(), subject.minerals.getBromine(), subject.minerals.getMercury(), subject.minerals.getArsenic(), subject.minerals.getCadmium(), subject.minerals.getLead(), subject.minerals.getTin(), subject.getIngredient_idIngredient(), subject.getIsIngredient());
+                dto.uploadMonosaturatedfattyacids(subject.monosaturatedFattyAcids.getC141n5(), subject.monosaturatedFattyAcids.getC151(), subject.monosaturatedFattyAcids.getC161n7(), subject.monosaturatedFattyAcids.getC171n7(), subject.monosaturatedFattyAcids.getC181n9(), subject.monosaturatedFattyAcids.getC181n7(), subject.monosaturatedFattyAcids.getC201n9(), subject.monosaturatedFattyAcids.getC201n11(), subject.monosaturatedFattyAcids.getC221n9(), subject.monosaturatedFattyAcids.getC221n11(), subject.monosaturatedFattyAcids.getC241n9(), subject.monosaturatedFattyAcids.getOther(), subject.getIngredient_idIngredient(), subject.getIsIngredient());
+                dto.uploadMonounsaturatedfattyacids(subject.monounsaturatedFattyAcids.getC141Trans9(), subject.monounsaturatedFattyAcids.getC161Trans(), subject.monounsaturatedFattyAcids.getC181TransN9(), subject.monounsaturatedFattyAcids.getC201Trans(), subject.monounsaturatedFattyAcids.getC221Trans(), subject.monounsaturatedFattyAcids.getC182TransUndifferentiated(), subject.getIngredient_idIngredient(), subject.getIsIngredient());
+                dto.uploadName(subject.nameLang.getDk(), subject.getIngredient_idIngredient(), subject.getIsIngredient());
+                dto.uploadOrganicAcids(subject.organicAcids.getlLacticAcid(), subject.organicAcids.getdLacticAcid(), subject.organicAcids.getLaticAcidTotal(), subject.organicAcids.getCitricAcid(), subject.organicAcids.getOxalicAcid(), subject.organicAcids.getMalicAcid(), subject.organicAcids.getAceticAcid(), subject.organicAcids.getBenzoicAcid(), subject.organicAcids.getSorbicAcid(), subject.organicAcids.getPropionic(), subject.organicAcids.getOrganicAcidsTotal(), subject.getIngredient_idIngredient(), subject.getIsIngredient());
+                dto.uploadPolyunsaturatedfattyacids(subject.polyunsaturatedFattyAcids.getC182n6(), subject.polyunsaturatedFattyAcids.getC182(), subject.polyunsaturatedFattyAcids.getC183n3(), subject.polyunsaturatedFattyAcids.getC183n6(), subject.polyunsaturatedFattyAcids.getC184n3(), subject.polyunsaturatedFattyAcids.getC202n6(), subject.polyunsaturatedFattyAcids.getC222n6(), subject.polyunsaturatedFattyAcids.getC224n6(), subject.polyunsaturatedFattyAcids.getC225n6(), subject.polyunsaturatedFattyAcids.getC203n3(), subject.polyunsaturatedFattyAcids.getC204n3(), subject.polyunsaturatedFattyAcids.getC204n6(), subject.polyunsaturatedFattyAcids.getC203n6(), subject.polyunsaturatedFattyAcids.getC205n3(), subject.polyunsaturatedFattyAcids.getC225n3(), subject.polyunsaturatedFattyAcids.getC226n3(), subject.polyunsaturatedFattyAcids.getOther(), subject.getIngredient_idIngredient(), subject.getIsIngredient());
+                dto.uploadSaturatedfattyacids(subject.saturatedFattyAcids.getC40(), subject.saturatedFattyAcids.getC60(), subject.saturatedFattyAcids.getC80(), subject.saturatedFattyAcids.getC100(), subject.saturatedFattyAcids.getC120(), subject.saturatedFattyAcids.getC130(), subject.saturatedFattyAcids.getC140(), subject.saturatedFattyAcids.getC150(), subject.saturatedFattyAcids.getC160(), subject.saturatedFattyAcids.getC170(), subject.saturatedFattyAcids.getC180(), subject.saturatedFattyAcids.getC200(), subject.saturatedFattyAcids.getC210(), subject.saturatedFattyAcids.getC220(), subject.saturatedFattyAcids.getC230(), subject.saturatedFattyAcids.getC240(), subject.saturatedFattyAcids.getOther(), subject.getIngredient_idIngredient(), subject.getIsIngredient());
+                dto.uploadSterols(subject.sterols.getCholesterol(), subject.getIngredient_idIngredient(), subject.getIsIngredient());
+                dto.uploadSupermarkedgroup(subject.supermarkedGroup.getName(), subject.getIngredient_idIngredient(), subject.getIsIngredient());
+                dto.uploadVariety(subject.variety.getName(), subject.getIngredient_idIngredient());
+                dto.uploadVitamins(subject.vitamins.getVitaminA(), subject.vitamins.getRetinol(), subject.vitamins.getBetaCarotene(), subject.vitamins.getVitaminD(), subject.vitamins.getD3Cholecalciferol(), subject.vitamins.getD2Ergocalciferol(), subject.vitamins.get25hydroxycholecalciferol(), subject.vitamins.getVitaminE(), subject.vitamins.getAlphaTocopherol(), subject.vitamins.getGammaTocopherol(), subject.vitamins.getDeltaTocopherol(), subject.vitamins.getAlphaTokotrienol(), subject.vitamins.getVitaminK1(), subject.vitamins.getVitaminB1(), subject.vitamins.getThiamine(), subject.vitamins.getHydroxyethylthiazole(), subject.vitamins.getVitaminB2Riboflavin(), subject.vitamins.getNiacinEquivalent(), subject.vitamins.getNiacin(), subject.vitamins.getVitaminB6(), subject.vitamins.getPantothenic(), subject.vitamins.getBiotin(), subject.vitamins.getFolate(), subject.vitamins.getB12(), subject.vitamins.getcVitamin(), subject.vitamins.getLAscorbicAcid(), subject.vitamins.getLDehydroascorbicAcid(), subject.getIngredient_idIngredient(), subject.getIsIngredient());
+                dto.uploadcarbohydrates(subject.carbohydrates.getFructose(), subject.carbohydrates.getGalactose(), subject.carbohydrates.getGlucose(), subject.carbohydrates.getMonosaccharidesTotal(), subject.carbohydrates.getLactose(), subject.carbohydrates.getMaltose(), subject.carbohydrates.getSucrose(), subject.carbohydrates.getDisaccharidesTotal(), subject.carbohydrates.getMaltotriose(), subject.carbohydrates.getRaffinose(), subject.carbohydrates.getOtherSugars(), subject.carbohydrates.getSugarsTotal(), subject.carbohydrates.getSorbitol(), subject.carbohydrates.getMannitol(), subject.carbohydrates.getInositol(), subject.carbohydrates.getMaltitol(), subject.carbohydrates.getSugarAlcoholsTotal(), subject.carbohydrates.getStarch(), subject.carbohydrates.getIDF(), subject.carbohydrates.getSDFP(), subject.carbohydrates.getSDFS(), subject.carbohydrates.getaHexoses(), subject.carbohydrates.getbThePentoses(), subject.carbohydrates.getcUronicAcids(), subject.carbohydrates.getCellulose(), subject.carbohydrates.getLignin(), subject.carbohydrates.getCrudeFibers(), subject.carbohydrates.getNaturalDietFibre(), subject.getIngredient_idIngredient(), subject.getIsIngredient());
+                for(int i = 0; i < subject.color.colorSize(); i++){
+                    dto.uploadcolor(subject.color.getColor(i), subject.getIngredient_idIngredient(), subject.getIsIngredient());
+                } 
+                dto.uploadfoodGroup(subject.getFoodGroup(), subject.getIngredient_idIngredient(), subject.getIsIngredient());
+            } catch (Exception ex) {
+                Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+            try {
+                dto.uploadProduct(subject.getName(), subject.getKj(), subject.getKcal(), subject.getTotalN(), subject.getProtien(), subject.getCarbohydrates(), subject.getAddedSugar(), subject.getFat(), subject.getFiber(), subject.getAlcohol(), subject.getAsh(), subject.getDryMatter(), subject.getWater(), subject.getDB());
+                subject.setProduct_idproduct(dto.getProductId(subject.getName()));
+                dto.uploadAllergens(subject.allergens.getGluten(), subject.allergens.getMilk(), subject.allergens.getEgg(), subject.allergens.getPeanut(), subject.allergens.getSoy(), subject.allergens.getWheat(), subject.allergens.getFish(), subject.allergens.getShellfish(), subject.allergens.getSesame(), subject.getProduct_idproduct(), subject.getIsIngredient());
+                dto.uploadAminoAcids(subject.aminoAcids.getIsoleucine(), subject.aminoAcids.getLeucine(), subject.aminoAcids.getLysine(), subject.aminoAcids.getMethionine(), subject.aminoAcids.getCystine(), subject.aminoAcids.getPhenylalanine(), subject.aminoAcids.getTyrosine(), subject.aminoAcids.getThreonine(), subject.aminoAcids.getTryptophan(), subject.aminoAcids.getValin(), subject.aminoAcids.getArginine(), subject.aminoAcids.getHistidine(), subject.aminoAcids.getAlanine(), subject.aminoAcids.getAsparticAcid(), subject.aminoAcids.getGlutamicAcid(), subject.aminoAcids.getGlycine(), subject.aminoAcids.getProline(), subject.aminoAcids.getHydroxyproline(), subject.aminoAcids.getSerin(), subject.aminoAcids.getBetaCarotene(), subject.getProduct_idproduct(), subject.getIsIngredient());
+                dto.uploadBiogeneamines(subject.biogeneamines.getHistamine(), subject.biogeneamines.getTyramine(), subject.biogeneamines.getPhenylethylamine(), subject.biogeneamines.getPutrescine(), subject.biogeneamines.getCadaverine(), subject.biogeneamines.getSpermine(), subject.biogeneamines.getSpermidine(), subject.biogeneamines.getSerotonin(), subject.getProduct_idproduct(), subject.getIsIngredient());
+                dto.uploadFactors(subject.factors.getWaste(), subject.factors.getProteinConversionFactor(), subject.factors.getFattyAcidConversionFactor(), subject.getProduct_idproduct(), subject.getIsIngredient());
+                dto.uploadFattyacidssums(subject.fattyAcidsSums.getOtherFattyAcids(), subject.fattyAcidsSums.getSumSaturated(), subject.fattyAcidsSums.getSumMonounsaturated(), subject.fattyAcidsSums.getSumPolyunsaturated(), subject.fattyAcidsSums.getTransFattyAcidsTotal(), subject.fattyAcidsSums.getFattyAcidsTotal(), subject.fattyAcidsSums.getSumN3FattyAcids(), subject.fattyAcidsSums.getSumN6FattyAcids(), subject.getProduct_idproduct(), subject.getIsIngredient());
+                dto.uploadMinerals(subject.minerals.getSulfur(), subject.minerals.getChloride(), subject.minerals.getSodium(), subject.minerals.getPotassium(), subject.minerals.getCalcium(), subject.minerals.getMagnesium(), subject.minerals.getPhosphorus(), subject.minerals.getIron(), subject.minerals.getCopper(), subject.minerals.getZink(), subject.minerals.getIodine(), subject.minerals.getManganese(), subject.minerals.getChromium(), subject.minerals.getSelenium(), subject.minerals.getMolybdenum(), subject.minerals.getColbalt(), subject.minerals.getNickel(), subject.minerals.getFluoron(), subject.minerals.getSilicon(), subject.minerals.getRubidium(), subject.minerals.getAluminum(), subject.minerals.getBoron(), subject.minerals.getBromine(), subject.minerals.getMercury(), subject.minerals.getArsenic(), subject.minerals.getCadmium(), subject.minerals.getLead(), subject.minerals.getTin(), subject.getProduct_idproduct(), subject.getIsIngredient());
+                dto.uploadMonosaturatedfattyacids(subject.monosaturatedFattyAcids.getC141n5(), subject.monosaturatedFattyAcids.getC151(), subject.monosaturatedFattyAcids.getC161n7(), subject.monosaturatedFattyAcids.getC171n7(), subject.monosaturatedFattyAcids.getC181n9(), subject.monosaturatedFattyAcids.getC181n7(), subject.monosaturatedFattyAcids.getC201n9(), subject.monosaturatedFattyAcids.getC201n11(), subject.monosaturatedFattyAcids.getC221n9(), subject.monosaturatedFattyAcids.getC221n11(), subject.monosaturatedFattyAcids.getC241n9(), subject.monosaturatedFattyAcids.getOther(), subject.getProduct_idproduct(), subject.getIsIngredient());
+                dto.uploadMonounsaturatedfattyacids(subject.monounsaturatedFattyAcids.getC141Trans9(), subject.monounsaturatedFattyAcids.getC161Trans(), subject.monounsaturatedFattyAcids.getC181TransN9(), subject.monounsaturatedFattyAcids.getC201Trans(), subject.monounsaturatedFattyAcids.getC221Trans(), subject.monounsaturatedFattyAcids.getC182TransUndifferentiated(), subject.getProduct_idproduct(), subject.getIsIngredient());
+                dto.uploadName(subject.nameLang.getDk(), subject.getProduct_idproduct(), subject.getIsIngredient());
+                dto.uploadOrganicAcids(subject.organicAcids.getlLacticAcid(), subject.organicAcids.getdLacticAcid(), subject.organicAcids.getLaticAcidTotal(), subject.organicAcids.getCitricAcid(), subject.organicAcids.getOxalicAcid(), subject.organicAcids.getMalicAcid(), subject.organicAcids.getAceticAcid(), subject.organicAcids.getBenzoicAcid(), subject.organicAcids.getSorbicAcid(), subject.organicAcids.getPropionic(), subject.organicAcids.getOrganicAcidsTotal(), subject.getProduct_idproduct(), subject.getIsIngredient());
+                dto.uploadPolyunsaturatedfattyacids(subject.polyunsaturatedFattyAcids.getC182n6(), subject.polyunsaturatedFattyAcids.getC182(), subject.polyunsaturatedFattyAcids.getC183n3(), subject.polyunsaturatedFattyAcids.getC183n6(), subject.polyunsaturatedFattyAcids.getC184n3(), subject.polyunsaturatedFattyAcids.getC202n6(), subject.polyunsaturatedFattyAcids.getC222n6(), subject.polyunsaturatedFattyAcids.getC224n6(), subject.polyunsaturatedFattyAcids.getC225n6(), subject.polyunsaturatedFattyAcids.getC203n3(), subject.polyunsaturatedFattyAcids.getC204n3(), subject.polyunsaturatedFattyAcids.getC204n6(), subject.polyunsaturatedFattyAcids.getC203n6(), subject.polyunsaturatedFattyAcids.getC205n3(), subject.polyunsaturatedFattyAcids.getC225n3(), subject.polyunsaturatedFattyAcids.getC226n3(), subject.polyunsaturatedFattyAcids.getOther(), subject.getProduct_idproduct(), subject.getIsIngredient());
+                dto.uploadSaturatedfattyacids(subject.saturatedFattyAcids.getC40(), subject.saturatedFattyAcids.getC60(), subject.saturatedFattyAcids.getC80(), subject.saturatedFattyAcids.getC100(), subject.saturatedFattyAcids.getC120(), subject.saturatedFattyAcids.getC130(), subject.saturatedFattyAcids.getC140(), subject.saturatedFattyAcids.getC150(), subject.saturatedFattyAcids.getC160(), subject.saturatedFattyAcids.getC170(), subject.saturatedFattyAcids.getC180(), subject.saturatedFattyAcids.getC200(), subject.saturatedFattyAcids.getC210(), subject.saturatedFattyAcids.getC220(), subject.saturatedFattyAcids.getC230(), subject.saturatedFattyAcids.getC240(), subject.saturatedFattyAcids.getOther(), subject.getProduct_idproduct(), subject.getIsIngredient());
+                dto.uploadSterols(subject.sterols.getCholesterol(), subject.getProduct_idproduct(), subject.getIsIngredient());
+                dto.uploadSupermarkedgroup(subject.supermarkedGroup.getName(), subject.getProduct_idproduct(), subject.getIsIngredient());
+                dto.uploadVitamins(subject.vitamins.getVitaminA(), subject.vitamins.getRetinol(), subject.vitamins.getBetaCarotene(), subject.vitamins.getVitaminD(), subject.vitamins.getD3Cholecalciferol(), subject.vitamins.getD2Ergocalciferol(), subject.vitamins.get25hydroxycholecalciferol(), subject.vitamins.getVitaminE(), subject.vitamins.getAlphaTocopherol(), subject.vitamins.getGammaTocopherol(), subject.vitamins.getDeltaTocopherol(), subject.vitamins.getAlphaTokotrienol(), subject.vitamins.getVitaminK1(), subject.vitamins.getVitaminB1(), subject.vitamins.getThiamine(), subject.vitamins.getHydroxyethylthiazole(), subject.vitamins.getVitaminB2Riboflavin(), subject.vitamins.getNiacinEquivalent(), subject.vitamins.getNiacin(), subject.vitamins.getVitaminB6(), subject.vitamins.getPantothenic(), subject.vitamins.getBiotin(), subject.vitamins.getFolate(), subject.vitamins.getB12(), subject.vitamins.getcVitamin(), subject.vitamins.getLAscorbicAcid(), subject.vitamins.getLDehydroascorbicAcid(), subject.getProduct_idproduct(), subject.getIsIngredient());
+                dto.uploadcarbohydrates(subject.carbohydrates.getFructose(), subject.carbohydrates.getGalactose(), subject.carbohydrates.getGlucose(), subject.carbohydrates.getMonosaccharidesTotal(), subject.carbohydrates.getLactose(), subject.carbohydrates.getMaltose(), subject.carbohydrates.getSucrose(), subject.carbohydrates.getDisaccharidesTotal(), subject.carbohydrates.getMaltotriose(), subject.carbohydrates.getRaffinose(), subject.carbohydrates.getOtherSugars(), subject.carbohydrates.getSugarsTotal(), subject.carbohydrates.getSorbitol(), subject.carbohydrates.getMannitol(), subject.carbohydrates.getInositol(), subject.carbohydrates.getMaltitol(), subject.carbohydrates.getSugarAlcoholsTotal(), subject.carbohydrates.getStarch(), subject.carbohydrates.getIDF(), subject.carbohydrates.getSDFP(), subject.carbohydrates.getSDFS(), subject.carbohydrates.getaHexoses(), subject.carbohydrates.getbThePentoses(), subject.carbohydrates.getcUronicAcids(), subject.carbohydrates.getCellulose(), subject.carbohydrates.getLignin(), subject.carbohydrates.getCrudeFibers(), subject.carbohydrates.getNaturalDietFibre(), subject.getProduct_idproduct(), subject.getIsIngredient());
+                for(int i = 0; i < subject.color.colorSize(); i++){
+                    dto.uploadcolor(subject.color.getColor(i), subject.getProduct_idproduct(), subject.getIsIngredient());
+                } 
+                dto.uploadfoodGroup(subject.getFoodGroup(), subject.getProduct_idproduct(), subject.getIsIngredient());
+            } catch (Exception ex) {
+                Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+         try {
+             savePoint = savePoint +1;
+             save.save(savePoint);
+         } catch (IOException ex) {
+             Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
+         }
+        subject = xml.subjectArray.get(savePoint);
+        setTextArea();
+        setModel();
         
         
     }//GEN-LAST:event_uploadButtonActionPerformed
@@ -317,6 +426,16 @@ public class View extends javax.swing.JFrame {
         subject.color.removeColor();
         this.colorsLable.setText(subject.color.toString());
     }//GEN-LAST:event_removeButtonActionPerformed
+
+    private void isIngredientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isIngredientActionPerformed
+        if(subject.getIsIngredient() == false){
+            subject.setIsIngredient(true);
+            this.isingredientLable.setText("true");
+        }else{
+            subject.setIsIngredient(false);
+            this.isingredientLable.setText("false");
+        }
+    }//GEN-LAST:event_isIngredientActionPerformed
 
     /**
      * @param args the command line arguments
@@ -363,10 +482,14 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JLabel colorsLable;
     private javax.swing.JComboBox<String> eggComboBox;
     private javax.swing.JComboBox<String> fishComboBox;
+    private javax.swing.JTextField foodGroupTextField;
     private javax.swing.JComboBox<String> glutenComboBox;
+    private javax.swing.JButton isIngredient;
+    private javax.swing.JLabel isingredientLable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -13,6 +13,11 @@ public class NameLang {
     private String dk;
     private String latin;
 
+    
+    @Override
+    public String toString(){
+        return "navn: "+dk+"\n";
+    }
     public String getDk() {
         return dk;
     }

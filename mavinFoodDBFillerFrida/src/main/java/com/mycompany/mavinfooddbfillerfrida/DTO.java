@@ -21,8 +21,8 @@ public class DTO {
     public Connection getConnection() throws Exception{
     
         try{
-        String driver = "com.mysql.jdbc.Driver";
-        String url = "jdbc:mysql://localhost:3306/foodDB";
+        String driver = "com.mysql.cj.jdbc.Driver";
+        String url = "jdbc:mysql://localhost:3306/foodDB?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
         String userName = "root";
         String password = "2ad62a37f";
         Class.forName(driver);
@@ -35,11 +35,11 @@ public class DTO {
     return null;
     }
     
-    public void uploadIngredient(String name, int kj, int kcal, float totalN, float protien, float carbohydrates, float addedSugar, float fat, float fiber, float alcohol, float ash, float drymatter, float water)throws Exception{
+    public void uploadIngredient(String name, int kj, int kcal, float totalN, float protien, float carbohydrates, float addedSugar, float fat, float fiber, float alcohol, float ash, float drymatter, float water, String DB)throws Exception{
         try{
         Connection conn = getConnection();
-        PreparedStatement statment = conn.prepareStatement("insert into ingredient (name, kj, kcal, totalN, protien, carbohydrates, addedSugar, fat, fiber, alcohol, ash, drymatter, water) "
-                                                                       + "values ('"+name+"', "+kj+", "+kcal+", "+totalN+", "+protien+", "+carbohydrates+", "+addedSugar+", "+fat+", "+fiber+", "+alcohol+", "+ash+", "+drymatter+", "+water+") ");
+        PreparedStatement statment = conn.prepareStatement("insert into ingredient (nameEN, kj, kcal, totalN, protien, carbohydrates, addedSugar, fat, fiber, alcohol, ash, drymatter, water, DB) "
+                                                                       + "values ('"+name+"', "+kj+", "+kcal+", "+totalN+", "+protien+", "+carbohydrates+", "+addedSugar+", "+fat+", "+fiber+", "+alcohol+", "+ash+", "+drymatter+", "+water+", '"+DB+"') ");
         statment.execute();
         }catch(Exception e){System.out.println(e);}
     }
@@ -187,14 +187,14 @@ public class DTO {
         statment.execute();
         }catch(Exception e){System.out.println(e);}
     }  
-    public void uploadName(String dk, String latin, int id, boolean isIngredient) throws Exception{
+    public void uploadName(String dk, int id, boolean isIngredient) throws Exception{
         try{
             PreparedStatement statment;
         Connection conn = getConnection();
         if(isIngredient){
-            statment = conn.prepareStatement("insert into name (dk, latin, ingredient_idIngredient) values ('"+dk+"', '"+latin+"', "+id+");");
+            statment = conn.prepareStatement("insert into namelang (dk, ingredient_idIngredient) values ('"+dk+"', "+id+");");
         }else{
-            statment = conn.prepareStatement("insert into name (dk, latin, product_idproduct) values ('"+dk+"', '"+latin+"', "+id+");");
+            statment = conn.prepareStatement("insert into namelang (dk, product_idproduct) values ('"+dk+"', "+id+");");
         
         }
         statment.execute();
@@ -304,11 +304,11 @@ public class DTO {
         statment.execute();
         }catch(Exception e){System.out.println(e);}
     }  
-    public void uploadProduct(String name, int kj, int kcal, float totalN, float protien, float carbohydrates, float addedSugar, float fat, float fiber, float vitaminB1, float alcohol, float ash, float dryMatter, float water) throws Exception{
+    public void uploadProduct(String name, int kj, int kcal, float totalN, float protien, float carbohydrates, float addedSugar, float fat, float fiber, float alcohol, float ash, float dryMatter, float water, String DB) throws Exception{
         try{
         Connection conn = getConnection();
-        PreparedStatement statment = conn.prepareStatement("insert into product (name, kj, kcal, totalN, protien, carbohydrates, addedSugar, fat, fiber, alcohol, ash, dryMatter, water) "
-                + "                                 values ('"+name+"', "+kj+", "+kcal+", "+totalN+", "+protien+", "+carbohydrates+", "+addedSugar+", "+fat+", "+fiber+", "+alcohol+", "+ash+", "+dryMatter+", "+water+");");
+        PreparedStatement statment = conn.prepareStatement("insert into product (nameEN, kj, kcal, totalN, protien, carbohydrates, addedSugar, fat, fiber, alcohol, ash, dryMatter, water, DB) "
+                + "                                 values ('"+name+"', "+kj+", "+kcal+", "+totalN+", "+protien+", "+carbohydrates+", "+addedSugar+", "+fat+", "+fiber+", "+alcohol+", "+ash+", "+dryMatter+", "+water+", '"+DB+"');");
         statment.execute();
         }catch(Exception e){System.out.println(e);}
         finally {
@@ -320,7 +320,7 @@ public class DTO {
         int id = 0; 
         try{
         Connection conn = getConnection();
-        PreparedStatement statment = conn.prepareStatement("select idIngredient from ingredient where name = '"+name+"';");
+        PreparedStatement statment = conn.prepareStatement("select idIngredient from ingredient where nameEN = '"+name+"';");
         ResultSet resultSet = statment.executeQuery();
         if (resultSet.next()){
             id = resultSet.getInt("idIngredient");
@@ -333,7 +333,7 @@ public class DTO {
         int id = 0; 
         try{
         Connection conn = getConnection();
-        PreparedStatement statment = conn.prepareStatement("select idproduct from product where name = '"+name+"';");
+        PreparedStatement statment = conn.prepareStatement("select idproduct from product where nameEN = '"+name+"';");
         ResultSet resultSet = statment.executeQuery();
         if (resultSet.next()){
             id = resultSet.getInt("idproduct");
