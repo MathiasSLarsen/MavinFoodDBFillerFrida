@@ -15,6 +15,7 @@ public class SaturatedFattyAcids {
     private float c80;
     private float c100;
     private float c120;
+    private float c121n1;
     private float c130;
     private float c140;
     private float c150;
@@ -36,6 +37,7 @@ public class SaturatedFattyAcids {
                 "c8:0; "+c80+"\n" +
                 "c10:0; "+c100+"\n" +
                 "c12:0; "+c120+"\n" +
+                "c121n1; "+c121n1+"\n"+
                 "c13:0; "+c130+"\n" +
                 "c14:0; "+c140+"\n" +
                 "c15:0; "+c150+"\n" +
@@ -48,6 +50,14 @@ public class SaturatedFattyAcids {
                 "c23:0; "+c230+"\n" +
                 "c24:0; "+c240+"\n" +
                 "other; "+other+"\n";
+    }
+
+    public float getC121n1() {
+        return c121n1;
+    }
+
+    public void setC121n1(float c121n1) {
+        this.c121n1 = c121n1;
     }
     public float getOther() {
         return other;

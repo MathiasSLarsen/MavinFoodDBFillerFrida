@@ -12,10 +12,10 @@ package com.mycompany.mavinfooddbfillerfrida.model;
 public class Vitamins {
     private float vitaminA;
     private float retinol;
-    private float betaCarotene;
     private float vitaminD;
     private float D3Cholecalciferol;
     private float D2Ergocalciferol;
+    private float vitaminD325hydroxy;
     private float _25hydroxycholecalciferol;
     private float vitaminE;
     private float alphaTocopherol;
@@ -43,10 +43,10 @@ public class Vitamins {
                 "Vitamins\n"+
                 "vitaminA; "+vitaminA+"\n" +
                 "retinol; "+retinol+"\n" +
-                "betaCarotene; "+betaCarotene+"\n" +
                 "vitaminD; "+vitaminD+"\n" +
                 "D3Cholecalciferol; "+D3Cholecalciferol+"\n" +
                 "D2Ergocalciferol; "+D2Ergocalciferol+"\n" +
+                "vitaminD325hydroxy"+vitaminD325hydroxy+"\n"+
                 "_25hydroxycholecalciferol; "+_25hydroxycholecalciferol+"\n" +
                 "vitaminE; "+vitaminE+"\n" +
                 "alphaTocopherol; "+alphaTocopherol+"\n" +
@@ -68,6 +68,15 @@ public class Vitamins {
                 "cVitamin; "+cVitamin+"\n" +
                 "LAscorbicAcid; "+LAscorbicAcid+"\n" +
                 "LDehydroascorbicAcid; "+LDehydroascorbicAcid+"\n";
+    }
+    
+    
+    public float getVitaminD325hydroxy() {
+        return vitaminD325hydroxy;
+    }
+
+    public void setVitaminD325hydroxy(float vitaminD325hydroxy) {
+        this.vitaminD325hydroxy = vitaminD325hydroxy;
     }
     public float getLDehydroascorbicAcid() {
         return LDehydroascorbicAcid;
@@ -91,14 +100,6 @@ public class Vitamins {
 
     public void setRetinol(float retinol) {
         this.retinol = retinol;
-    }
-
-    public float getBetaCarotene() {
-        return betaCarotene;
-    }
-
-    public void setBetaCarotene(float betaCarotene) {
-        this.betaCarotene = betaCarotene;
     }
 
     public float getVitaminD() {

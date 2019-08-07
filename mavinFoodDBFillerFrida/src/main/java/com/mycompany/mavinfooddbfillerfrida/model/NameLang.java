@@ -14,7 +14,6 @@ public class NameLang {
     private String latin;
 
     
-    @Override
     public String toString(){
         return "navn: "+dk+"\n";
     }
