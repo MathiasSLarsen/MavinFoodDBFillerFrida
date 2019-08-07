@@ -51,8 +51,8 @@
                         <java.protocol.handler.pkgs>com.zunix.base</java.protocol.handler.pkgs>
                         <log4j.configuration>log4j-core.properties</log4j.configuration>
                     </systemPropertyVariables>
-                    <argLine>-Xmx4g</argLine>
-                    <argLine>-Xms4g</argLine>
+                    <argLine>-Xmx16g</argLine>
+                    <argLine>-Xms16g</argLine>
                     <argLine>-Dorg.apache.poi.util.POILogger=org.apache.commons.logging.impl.NoOpLog</argLine>
                 </configuration>
             </plugin>    
