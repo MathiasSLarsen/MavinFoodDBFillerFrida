@@ -80,11 +80,11 @@ public class DTO {
         Connection conn = getConnection();
         if(isIngredient){
             statment = conn.prepareStatement("insert into carbohydrates (fructose, galactose, glucose, monosaccharidesTotal, lactose, maltose, sucrose, disaccharidesTotal, maltotriose, raffinose, otherSugars,  sugarsTotal, sorbitol, mannitol, inositol, maltitol, sugarAlcoholsTotal, starch, IDF, SDFP, SDFS, `(a)Hexoses`, `(b)ThePentoses`, `(c)UronicAcids`, cellulose, lignin, crudeFibers, naturalDietFibre, ingredient_idIngredient) "
-                + "                                         values ("+fructose+", "+glucose+", "+galactose+", "+monosaccharidesTotal+", "+lactose+", "+maltose+", "+sucrose+", "+disaccharidesTotal+", "+maltotriose+", "+raffinose+", "+otherSugars+", "+sugarsTotal+", "+sorbitol+", "+mannitol+", "+inositol+", "+maltitol+", "+sugarAlcoholsTotal+", "+starch+", "+IDF+", "+SDFP+", "+SDFS+", "+Hexoses+", "+ThePentoses+", "+UronicAcids+", "+cellulose+", "+lignin+", "+crudeFibers+", "+naturalDietFibre+", "+id+");");
+                + "                                         values ("+fructose+", "+galactose+", "+glucose+", "+monosaccharidesTotal+", "+lactose+", "+maltose+", "+sucrose+", "+disaccharidesTotal+", "+maltotriose+", "+raffinose+", "+otherSugars+", "+sugarsTotal+", "+sorbitol+", "+mannitol+", "+inositol+", "+maltitol+", "+sugarAlcoholsTotal+", "+starch+", "+IDF+", "+SDFP+", "+SDFS+", "+Hexoses+", "+ThePentoses+", "+UronicAcids+", "+cellulose+", "+lignin+", "+crudeFibers+", "+naturalDietFibre+", "+id+");");
         
         }else{
             statment = conn.prepareStatement("insert into carbohydrates (fructose, galactose, glucose, monosaccharidesTotal, lactose, maltose, sucrose, disaccharidesTotal, maltotriose, raffinose, otherSugars, sugarsTotal, sorbitol, mannitol, inositol, maltitol, sugarAlcoholsTotal, starch, IDF, SDFP, SDFS, `(a)Hexoses`, `(b)ThePentoses`, `(c)UronicAcids`, cellulose, lignin, crudeFibers, naturalDietFibre, product_idproduct) "
-                + "                                         values ("+fructose+", "+glucose+", "+galactose+", "+monosaccharidesTotal+", "+lactose+", "+maltose+", "+sucrose+", "+disaccharidesTotal+", "+maltotriose+", "+raffinose+", "+otherSugars+", "+sugarsTotal+", "+sorbitol+", "+mannitol+", "+inositol+", "+maltitol+", "+sugarAlcoholsTotal+", "+starch+", "+IDF+", "+SDFP+", "+SDFS+", "+Hexoses+", "+ThePentoses+", "+UronicAcids+", "+cellulose+", "+lignin+", "+crudeFibers+", "+naturalDietFibre+", "+id+");");
+                + "                                         values ("+fructose+", "+galactose+", "+glucose+", "+monosaccharidesTotal+", "+lactose+", "+maltose+", "+sucrose+", "+disaccharidesTotal+", "+maltotriose+", "+raffinose+", "+otherSugars+", "+sugarsTotal+", "+sorbitol+", "+mannitol+", "+inositol+", "+maltitol+", "+sugarAlcoholsTotal+", "+starch+", "+IDF+", "+SDFP+", "+SDFS+", "+Hexoses+", "+ThePentoses+", "+UronicAcids+", "+cellulose+", "+lignin+", "+crudeFibers+", "+naturalDietFibre+", "+id+");");
         
         }
         statment.execute();
@@ -119,7 +119,7 @@ public class DTO {
             PreparedStatement statment;
         Connection conn = getConnection();
         if(isIngredient){
-            statment = conn.prepareStatement("insert into fattyacidssums (otherFattyAcids, sumSaturated, sumMonounsaturated, sumPolyunsaturated, transFattyAcidsTotal fattyAcidsTotal, `sumN-3FattyAcids`, `sumN-6FattyAcids`, ingredient_idIngredient) "
+            statment = conn.prepareStatement("insert into fattyacidssums (otherFattyAcids, sumSaturated, sumMonounsaturated, sumPolyunsaturated, transFattyAcidsTotal, fattyAcidsTotal, `sumN-3FattyAcids`, `sumN-6FattyAcids`, ingredient_idIngredient) "
                 + "                                         values ("+otherFattyAcids+", "+sumSaturated+", "+sumMonounsaturated+", "+sumPolyunsaturated+", "+transFattyAcidsTotal+", "+fattyAcidsTotal+", "+sumN3FattyAcids+", "+sumN6FattyAcids+", "+id+")");
         }else{
             statment = conn.prepareStatement("insert into fattyacidssums (otherFattyAcids, sumSaturated, sumMonounsaturated, sumPolyunsaturated, transFattyAcidsTotal, fattyAcidsTotal, `sumN-3FattyAcids`, `sumN-6FattyAcids`, product_idproduct) "
@@ -157,30 +157,30 @@ public class DTO {
         statment.execute();
         }catch(Exception e){System.out.println(e);}
     }  
-    public void uploadMonosaturatedfattyacids( float c141n5, float c151, float c161n7, float c171n7, float c181n9, float c181n7, float c201n9, float c201n11, float c221n9, float c221n11, float c241n9, float other, int id, boolean isIngredient) throws Exception{
+    public void uploadMonounsaturatedfattyacids( float c141n5, float c151, float c161n7, float c171n7, float c181n9, float c181n7, float c201n9, float c201n11, float c221n9, float c221n11, float c241n9, float other, int id, boolean isIngredient) throws Exception{
         try{
             PreparedStatement statment;
         Connection conn = getConnection();
         if(isIngredient){
-            statment = conn.prepareStatement("insert into monosaturatedfattyacids (`c14:1n-5`, `c15:1`, `c16:1n-7`, `c17:1n-7`, `c18:1n-9`, `c18:1n-7`, `c20:1n-9`, `c20:1n-11`, `c22:1n-9`, `c22:1n-11`, `c24:1n-9`, `other`, ingredient_idIngredient) "
+            statment = conn.prepareStatement("insert into monounsaturatedfattyacids (`c14:1n-5`, `c15:1`, `c16:1n-7`, `c17:1n-7`, `c18:1n-9`, `c18:1n-7`, `c20:1n-9`, `c20:1n-11`, `c22:1n-9`, `c22:1n-11`, `c24:1n-9`, `other`, ingredient_idIngredient) "
                 + "                                         values ( "+c141n5+", "+c151+", "+c161n7+", "+c171n7+", "+c181n9+", "+c181n7+", "+c201n9+", "+c201n11+", "+c221n9+", "+c221n11+", "+c241n9+", "+other+", "+id+");");
         }else{
-            statment = conn.prepareStatement("insert into monosaturatedfattyacids ( `c14:1n-5`, `c15:1`, `c16:1n-7`, `c17:1n-7`, `c18:1n-9`, `c18:1n-7`, `c20:1n-9`, `c20:1n-11`, `c22:1n-9`, `c22:1n-11`, `c24:1n-9`, `other`, product_idproduct) "
+            statment = conn.prepareStatement("insert into monounsaturatedfattyacids ( `c14:1n-5`, `c15:1`, `c16:1n-7`, `c17:1n-7`, `c18:1n-9`, `c18:1n-7`, `c20:1n-9`, `c20:1n-11`, `c22:1n-9`, `c22:1n-11`, `c24:1n-9`, `other`, product_idproduct) "
                 + "                                         values ( "+c141n5+", "+c151+", "+c161n7+", "+c171n7+", "+c181n9+", "+c181n7+", "+c201n9+", "+c201n11+", "+c221n9+", "+c221n11+", "+c241n9+", "+other+", "+id+");");
         
         }
         statment.execute();
         }catch(Exception e){System.out.println(e);}
     }  
-    public void uploadMonounsaturatedfattyacids(float c141Trans9, float c161Trans, float c181Transn9, float c201Trans, float c221Trans, float c182TransUndifferentiated, int id, boolean isIngredient) throws Exception{
+    public void uploadMonounsaturatedfattyacidsTrans(float c141Trans9, float c161Trans, float c181Transn9, float c201Trans, float c221Trans, float c182TransUndifferentiated, int id, boolean isIngredient) throws Exception{
         try{
             PreparedStatement statment;
         Connection conn = getConnection();
         if(isIngredient){
-            statment = conn.prepareStatement("insert into monounsaturatedfattyacids (`c14:1Trans-9`, `c16:1Trans`, `c18:1Trans-n-9`, `c20:1Trans`, `c22:1Trans`, `c18:2TransUndifferentiated`, ingredient_idIngredient) "
+            statment = conn.prepareStatement("insert into monounsaturatedfattyacidsTrans (`c14:1Trans-9`, `c16:1Trans`, `c18:1Trans-n-9`, `c20:1Trans`, `c22:1Trans`, `c18:2TransUndifferentiated`, ingredient_idIngredient) "
                     + "                     values ("+c141Trans9+", "+c161Trans+", "+c181Transn9+", "+c201Trans+", "+c221Trans+", "+c182TransUndifferentiated+","+id+" );");
         }else{
-            statment = conn.prepareStatement("insert into monounsaturatedfattyacids (`c14:1Trans-9`, `c16:1Trans`, `c18:1Trans-n-9`, `c20:1Trans`, `c22:1Trans`, `c18:2TransUndifferentiated`, product_idproduct) "
+            statment = conn.prepareStatement("insert into monounsaturatedfattyacidsTrans (`c14:1Trans-9`, `c16:1Trans`, `c18:1Trans-n-9`, `c20:1Trans`, `c22:1Trans`, `c18:2TransUndifferentiated`, product_idproduct) "
                     + "                     values ("+c141Trans9+", "+c161Trans+", "+c181Transn9+", "+c201Trans+", "+c221Trans+", "+c182TransUndifferentiated+","+id+" );");
         
         }
@@ -200,7 +200,7 @@ public class DTO {
         statment.execute();
         }catch(Exception e){System.out.println(e);}
     }  
-    public void uploadPolyunsaturatedfattyacids(float c182n6, float c182, float c183n3, float c183n6, float c184n3, float c202n6, float c222n6, float c224n6, float c225n6, float c203n3, float c204n3, float c204n6, float c203n6, float c205n3, float c225n3, float c226n3, float other, int id, boolean isIngredient) throws Exception{
+    public void uploadPolyunsaturatedfattyacids(float c182n6, float c182, float c183n3, float c183n6, float c184n3, float c202n6, float c222n6, float c224n6, float c225n6, float c203n3, float c204n3,  float c203n6, float c204n6, float c205n3, float c225n3, float c226n3, float other, int id, boolean isIngredient) throws Exception{
         try{
             PreparedStatement statment;
         Connection conn = getConnection();
@@ -270,7 +270,7 @@ public class DTO {
             statment = conn.prepareStatement("insert into vitamins (vitaminA, retinol, vitaminD, `D3-cholecalciferol`, `D2Ergocalciferol`, `vitaminD325hydroxy`, `25-hydroxycholecalciferol`, vitaminE, `alpha-tocopherol`, `gamma-tocopherol`, `delta-tocopherol`, `alpha-tokotrienol`, vitaminK1, vitaminB1, `thiamine`, `hydroxyethylthiazole`, `vitaminB2-Riboflavin`, NiacinEquivalent, niacin, vitaminB6, pantothenic, biotin, folate, b12, cVitamin, `L-ascorbicAcid`,`L-dehydroascorbicAcid`, ingredient_idIngredient) "
                 + "                                 values ("+vitaminA+", "+retinol+", "+vitaminD+", "+D3Cholecalciferol+","+D2Ergocalciferol+","+vitaminD325hydroxy+", "+_25Hydroxycholecalciferol+", "+vitaminE+", "+alphaTocopherol+", "+gammaTocopherol+", "+deltaTocopherol+", "+alphaTokotrienol+", "+vitaminK1+", "+vitaminB1+", "+thiamine+", "+hydroxyethylthiazole+", "+vitaminB2Riboflavin+", "+NiacinEquivalent+", "+niacin+", "+vitaminB6+", "+pantothenic+", "+biotin+", "+folate+", "+b12+", "+cVitamin+", "+LAscorbicAcid+", "+LDehydroascorbicAcid+", "+id+");");
         }else{
-            statment = conn.prepareStatement("insert into vitamins (vitaminA, retinol, `beta-carotene`, vitaminD, `D3-cholecalciferol`, `D2Ergocalciferol`,`vitaminD325hydroxy`, `25-hydroxycholecalciferol`, vitaminE, `alpha-tocopherol`, `gamma-tocopherol`, `delta-tocopherol`, `alpha-tokotrienol`, vitaminK1, vitaminB1, `thiamine`, `hydroxyethylthiazole`, `vitaminB2-Riboflavin`, NiacinEquivalent, niacin, vitaminB6, pantothenic, biotin, folate, b12, cVitamin, `L-ascorbicAcid`,`L-dehydroascorbicAcid`, product_idproduct) "
+            statment = conn.prepareStatement("insert into vitamins (vitaminA, retinol, vitaminD, `D3-cholecalciferol`, `D2Ergocalciferol`,`vitaminD325hydroxy`, `25-hydroxycholecalciferol`, vitaminE, `alpha-tocopherol`, `gamma-tocopherol`, `delta-tocopherol`, `alpha-tokotrienol`, vitaminK1, vitaminB1, `thiamine`, `hydroxyethylthiazole`, `vitaminB2-Riboflavin`, NiacinEquivalent, niacin, vitaminB6, pantothenic, biotin, folate, b12, cVitamin, `L-ascorbicAcid`,`L-dehydroascorbicAcid`, product_idproduct) "
                 + "                                 values ("+vitaminA+", "+retinol+", "+vitaminD+", "+D3Cholecalciferol+","+D2Ergocalciferol+","+vitaminD325hydroxy+", "+_25Hydroxycholecalciferol+", "+vitaminE+", "+alphaTocopherol+", "+gammaTocopherol+", "+deltaTocopherol+", "+alphaTokotrienol+", "+vitaminK1+", "+vitaminB1+", "+thiamine+", "+hydroxyethylthiazole+", "+vitaminB2Riboflavin+", "+NiacinEquivalent+", "+niacin+", "+vitaminB6+", "+pantothenic+", "+biotin+", "+folate+", "+b12+", "+cVitamin+", "+LAscorbicAcid+", "+LDehydroascorbicAcid+", "+id+");");
         }
         statment.execute();

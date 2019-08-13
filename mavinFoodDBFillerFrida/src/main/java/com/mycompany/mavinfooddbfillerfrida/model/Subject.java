@@ -38,7 +38,7 @@ public class Subject {
     public Factors factors;
     public FattyAcidsSums fattyAcidsSums;
     public Minerals minerals;
-    public MonosaturatedFattyAcids monosaturatedFattyAcids;
+    public MonounsaturatedFattyAcids monounsaturatedFattyAcids;
     public NameLang nameLang;
     public PolyunsaturatedFattyAcids polyunsaturatedFattyAcids;
     public SaturatedFattyAcids saturatedFattyAcids;
@@ -47,7 +47,7 @@ public class Subject {
     public Vitamins vitamins;
     public OrganicAcids organicAcids;
     public Biogeneamines biogeneamines;
-    public MonounsaturatedFattyAcids monounsaturatedFattyAcids;
+    public MonounsaturatedFattyAcidsTrans monounsaturatedFattyAcidsTrans;
     public Variety variety;
 
     public Subject(){
@@ -58,7 +58,7 @@ public class Subject {
         factors = new Factors();
         fattyAcidsSums = new FattyAcidsSums();
         minerals = new Minerals();
-        monosaturatedFattyAcids = new MonosaturatedFattyAcids();
+        monounsaturatedFattyAcids = new MonounsaturatedFattyAcids();
         nameLang = new NameLang();
         polyunsaturatedFattyAcids = new PolyunsaturatedFattyAcids();
         saturatedFattyAcids = new SaturatedFattyAcids();
@@ -67,7 +67,7 @@ public class Subject {
         vitamins = new Vitamins();
         organicAcids = new OrganicAcids();
         biogeneamines = new Biogeneamines();
-        monounsaturatedFattyAcids = new MonounsaturatedFattyAcids();
+        monounsaturatedFattyAcidsTrans = new MonounsaturatedFattyAcidsTrans();
         variety = new Variety();
     }
     

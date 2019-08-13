@@ -25,11 +25,11 @@ public class XMLParser {
     
     public void Makeobjects() throws IOException{
     try {   
-           FileInputStream file = new FileInputStream(new File("C:\\Users\\Matt\\Desktop\\FoodApp\\Frida20190612\\Frida20190612en.xlsx"));
+           FileInputStream file = new FileInputStream(new File("C:\\Users\\Lenovo\\Desktop\\Food App\\Frida20190612\\Frida20190612en.xlsx"));
            Workbook workbook = new XSSFWorkbook(file);
            Sheet sheet = workbook.getSheetAt(1);
             
-           FileInputStream file2 = new FileInputStream(new File("C:\\Users\\Matt\\Desktop\\FoodApp\\Frida20190612\\Frida20190612da.xlsx"));
+           FileInputStream file2 = new FileInputStream(new File("C:\\Users\\Lenovo\\Desktop\\Food App\\Frida20190612\\Frida20190612da.xlsx"));
            Workbook workbook2 = new XSSFWorkbook(file2);
            Sheet sheet2 = workbook2.getSheetAt(1);
             
@@ -178,18 +178,18 @@ public class XMLParser {
                 subject.saturatedFattyAcids.setC230((float) row.getCell(138).getNumericCellValue());
                 subject.saturatedFattyAcids.setC240((float) row.getCell(139).getNumericCellValue());
                 subject.saturatedFattyAcids.setOther((float) row.getCell(140).getNumericCellValue());
-                subject.monosaturatedFattyAcids.setC141n5((float) row.getCell(141).getNumericCellValue());
-                subject.monosaturatedFattyAcids.setC151((float) row.getCell(142).getNumericCellValue());
-                subject.monosaturatedFattyAcids.setC161n7((float) row.getCell(143).getNumericCellValue());
-                subject.monosaturatedFattyAcids.setC171n7((float) row.getCell(144).getNumericCellValue());
-                subject.monosaturatedFattyAcids.setC181n9((float) row.getCell(145).getNumericCellValue());
-                subject.monosaturatedFattyAcids.setC181n7((float) row.getCell(146).getNumericCellValue());
-                subject.monosaturatedFattyAcids.setC201n9((float) row.getCell(147).getNumericCellValue());
-                subject.monosaturatedFattyAcids.setC201n11((float) row.getCell(148).getNumericCellValue());
-                subject.monosaturatedFattyAcids.setC221n9((float) row.getCell(149).getNumericCellValue());
-                subject.monosaturatedFattyAcids.setC221n11((float) row.getCell(150).getNumericCellValue());
-                subject.monosaturatedFattyAcids.setC241n9((float) row.getCell(151).getNumericCellValue());
-                subject.monosaturatedFattyAcids.setOther((float) row.getCell(152).getNumericCellValue());
+                subject.monounsaturatedFattyAcids.setC141n5((float) row.getCell(141).getNumericCellValue());
+                subject.monounsaturatedFattyAcids.setC151((float) row.getCell(142).getNumericCellValue());
+                subject.monounsaturatedFattyAcids.setC161n7((float) row.getCell(143).getNumericCellValue());
+                subject.monounsaturatedFattyAcids.setC171n7((float) row.getCell(144).getNumericCellValue());
+                subject.monounsaturatedFattyAcids.setC181n9((float) row.getCell(145).getNumericCellValue());
+                subject.monounsaturatedFattyAcids.setC181n7((float) row.getCell(146).getNumericCellValue());
+                subject.monounsaturatedFattyAcids.setC201n9((float) row.getCell(147).getNumericCellValue());
+                subject.monounsaturatedFattyAcids.setC201n11((float) row.getCell(148).getNumericCellValue());
+                subject.monounsaturatedFattyAcids.setC221n9((float) row.getCell(149).getNumericCellValue());
+                subject.monounsaturatedFattyAcids.setC221n11((float) row.getCell(150).getNumericCellValue());
+                subject.monounsaturatedFattyAcids.setC241n9((float) row.getCell(151).getNumericCellValue());
+                subject.monounsaturatedFattyAcids.setOther((float) row.getCell(152).getNumericCellValue());
                 subject.polyunsaturatedFattyAcids.setC182n6((float) row.getCell(153).getNumericCellValue());
                 subject.polyunsaturatedFattyAcids.setC182((float) row.getCell(154).getNumericCellValue());
                 subject.polyunsaturatedFattyAcids.setC183n3((float) row.getCell(155).getNumericCellValue());
@@ -207,12 +207,12 @@ public class XMLParser {
                 subject.polyunsaturatedFattyAcids.setC225n3((float) row.getCell(167).getNumericCellValue());
                 subject.polyunsaturatedFattyAcids.setC226n3((float) row.getCell(168).getNumericCellValue());
                 subject.polyunsaturatedFattyAcids.setOther((float) row.getCell(169).getNumericCellValue());
-                subject.monounsaturatedFattyAcids.setC141Trans9((float) row.getCell(170).getNumericCellValue());
-                subject.monounsaturatedFattyAcids.setC161Trans((float) row.getCell(171).getNumericCellValue());
-                subject.monounsaturatedFattyAcids.setC181TransN9((float) row.getCell(172).getNumericCellValue());
-                subject.monounsaturatedFattyAcids.setC201Trans((float) row.getCell(173).getNumericCellValue());
-                subject.monounsaturatedFattyAcids.setC221Trans((float) row.getCell(174).getNumericCellValue());
-                subject.monounsaturatedFattyAcids.setC182TransUndifferentiated((float) row.getCell(175).getNumericCellValue());
+                subject.monounsaturatedFattyAcidsTrans.setC141Trans9((float) row.getCell(170).getNumericCellValue());
+                subject.monounsaturatedFattyAcidsTrans.setC161Trans((float) row.getCell(171).getNumericCellValue());
+                subject.monounsaturatedFattyAcidsTrans.setC181TransN9((float) row.getCell(172).getNumericCellValue());
+                subject.monounsaturatedFattyAcidsTrans.setC201Trans((float) row.getCell(173).getNumericCellValue());
+                subject.monounsaturatedFattyAcidsTrans.setC221Trans((float) row.getCell(174).getNumericCellValue());
+                subject.monounsaturatedFattyAcidsTrans.setC182TransUndifferentiated((float) row.getCell(175).getNumericCellValue());
                 subject.fattyAcidsSums.setOtherFattyAcids((float) row.getCell(176).getNumericCellValue());
                 subject.fattyAcidsSums.setSumSaturated((float) row.getCell(177).getNumericCellValue());
                 subject.fattyAcidsSums.setSumMonounsaturated((float) row.getCell(178).getNumericCellValue());
